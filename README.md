@@ -15,3 +15,4 @@ Fase inicial
 [ ] Publicação.
 
 ## Desenho do projeto
+![Desenho do Projeto](https://github.com/AlexCruz-coder/Assets/blob/master/park/GERENCIADOR%20PARK.jpg?raw=true)
