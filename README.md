@@ -20,3 +20,4 @@ Fase inicial
 ## Tecnologias utilizadas no Projeto
 * Spring Boot
 * Spring Web
+* Spring JPA
