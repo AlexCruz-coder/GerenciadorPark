@@ -21,3 +21,4 @@ Fase inicial
 * Spring Boot
 * Spring Web
 * Spring JPA
+* Banco H2 
