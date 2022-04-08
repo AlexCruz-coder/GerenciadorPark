@@ -16,3 +16,7 @@ Fase inicial
 
 ## Desenho do projeto
 ![Desenho do Projeto](https://github.com/AlexCruz-coder/Assets/blob/master/park/GERENCIADOR%20PARK.jpg?raw=true)
+
+## Tecnologias utilizadas no Projeto
+* Spring Boot
+* Spring Web
