@@ -1,29 +1,27 @@
 package com.metatecno.gestorpark.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.metatecno.gestorpark.domain.Especialidade;
+import com.metatecno.gestorpark.services.EspecialidadeService;
 
 @RestController
 @RequestMapping(value="/especialidades")
 public class EspecialidadeResource {
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public List<Especialidade> listar() {
+	@Autowired
+	private EspecialidadeService service;
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer id) {
 		
-		Especialidade esp1 = new Especialidade(1,"Eletricista");
-		Especialidade esp2 = new Especialidade(1,"Mecanico");
-		
-		List<Especialidade> lista = new ArrayList<>();
-		lista.add(esp1);
-		lista.add(esp2);
-		
-		return lista;
+		Especialidade obj = service.findById(id);
+		return ResponseEntity.ok().body(obj);
 	}
 
 }
