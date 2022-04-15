@@ -22,3 +22,8 @@ Fase inicial
 * Spring Web
 * Spring JPA
 * Banco H2 
+
+
+## Testes no Projeto
+* Chamadas no endpoint "/Especialidades/{id}" e "/Funcionarios/{id}"
+* ![Testes_Api](https://github.com/AlexCruz-coder/Assets/blob/8c9905fd4802e2c487f68ac30bc44ae3efeb0341/park/gifs/Teste1_Api_GestorPark.gif)
