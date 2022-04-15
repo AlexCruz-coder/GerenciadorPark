@@ -1,6 +1,8 @@
 package com.metatecno.gestorpark.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Especialidade implements Serializable{
@@ -17,40 +20,35 @@ public class Especialidade implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="ID_ESPECIALIDADE")
-	private Integer ID;
+	private Integer id;
 	
 	@Column(name="NM_ESPECIALIDADE")
-	private String NmEspecialidade;
+	private String nmEspecialidade;
+	
+	@OneToMany
+	private List<Funcionario> funcionarios = new ArrayList<>();
 	
 	public Especialidade() {
 		
 	}
 
-	public Especialidade(Integer iD, String nmEspecialidade) {
+	public Especialidade(Integer id, String nmEspecialidade) {
 		super();
-		ID = iD;
-		NmEspecialidade = nmEspecialidade;
+		this.id = id;
+		this.nmEspecialidade = nmEspecialidade;
 	}
+	
 
-	public Integer getID() {
-		return ID;
-	}
-
-	public void setID(Integer iD) {
-		ID = iD;
-	}
-
-	public String getNmEspecialidade() {
-		return NmEspecialidade;
-	}
-
-	public void setNmEspecialidade(String nmEspecialidade) {
-		NmEspecialidade = nmEspecialidade;
+	public Especialidade(Integer id, String nmEspecialidade, List<Funcionario> funcionarios) {
+		super();
+		this.id = id;
+		this.nmEspecialidade = nmEspecialidade;
+		this.funcionarios = funcionarios;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(ID);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -62,8 +60,38 @@ public class Especialidade implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Especialidade other = (Especialidade) obj;
-		return Objects.equals(ID, other.ID);
+		return Objects.equals(id, other.id);
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getNmEspecialidade() {
+		return nmEspecialidade;
+	}
+
+	public void setNmEspecialidade(String nmEspecialidade) {
+		this.nmEspecialidade = nmEspecialidade;
+	}
+
+	public List<Funcionario> getFuncionarios() {
+		return funcionarios;
+	}
+
+	public void setFuncionarios(List<Funcionario> funcionarios) {
+		this.funcionarios = funcionarios;
 	}
 	
-	
+	public void setFuncionarios(Funcionario funcionario) {
+		this.funcionarios.add(funcionario);
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 }
