@@ -11,30 +11,29 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Funcionario implements Serializable {
+public class Brinquedo implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_FUNCIONARIO")
+	@Column(name="ID_BRINQUEDO")
 	private Integer id;
 	
-	@Column(name="NM_FUNCIONARIO")
+	@Column(name="NM_BRINQUEDO")
 	private String nome;
 	
 	@ManyToOne
-	private Especialidade especialidade; 
+	private Categoria categoria; 
 	
-	public Funcionario() {
+	public Brinquedo() {
 	}
 
-	public Funcionario(Integer id, String nome, Especialidade especialidade) {
+	public Brinquedo(Integer id, String nome, Categoria categoria) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.especialidade = especialidade;
+		this.categoria = categoria;
 	}
 
 	@Override
@@ -50,16 +49,16 @@ public class Funcionario implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Funcionario other = (Funcionario) obj;
+		Brinquedo other = (Brinquedo) obj;
 		return Objects.equals(id, other.id);
 	}
 
-	public Especialidade getEspecialidade() {
-		return especialidade;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setEspecialidade(Especialidade especialidade) {
-		this.especialidade = especialidade;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	public Integer getId() {

@@ -1,6 +1,8 @@
 package com.metatecno.gestorpark.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,33 +10,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Funcionario implements Serializable {
+public class Categoria implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="ID_FUNCIONARIO")
+	@Column(name="ID_CATEGORIA")
 	private Integer id;
 	
-	@Column(name="NM_FUNCIONARIO")
+	@Column(name="NM_CATEGORIA")
 	private String nome;
 	
-	@ManyToOne
-	private Especialidade especialidade; 
+	@OneToMany
+	private List<Brinquedo> brinquedos = new ArrayList<Brinquedo>(); 
 	
-	public Funcionario() {
+	public Categoria() {
 	}
 
-	public Funcionario(Integer id, String nome, Especialidade especialidade) {
+	public Categoria(Integer id, String nome) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.especialidade = especialidade;
 	}
 
 	@Override
@@ -50,16 +51,8 @@ public class Funcionario implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Funcionario other = (Funcionario) obj;
+		Categoria other = (Categoria) obj;
 		return Objects.equals(id, other.id);
-	}
-
-	public Especialidade getEspecialidade() {
-		return especialidade;
-	}
-
-	public void setEspecialidade(Especialidade especialidade) {
-		this.especialidade = especialidade;
 	}
 
 	public Integer getId() {
@@ -77,5 +70,16 @@ public class Funcionario implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public List<Brinquedo> getBrinquedos() {
+		return brinquedos;
+	}
+
+	public void setBrinquedos(List<Brinquedo> brinquedos) {
+		this.brinquedos = brinquedos;
+	}
 	
+	public void setBrinquedos(Brinquedo brinquedo) {
+		this.brinquedos.add(brinquedo);
+	}
 }
