@@ -15,7 +15,7 @@ Fase inicial
 [ ] Publicação.
 
 ## Desenho do projeto
-![Desenho do Projeto](https://github.com/AlexCruz-coder/Assets/blob/3ee9902c52f1d9eca0a104295f397130db49497b/park/GERENCIADOR%20PARK_NEW.jpg)
+![Desenho do Projeto](https://github.com/AlexCruz-coder/Assets/blob/5ba06f54dafe8a9b8070f4056a87acccb63bd422/park/MODELO_DOMINIO.jpg)
 
 ## Tecnologias utilizadas no Projeto
 * Spring Boot
