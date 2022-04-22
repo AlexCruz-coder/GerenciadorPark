@@ -32,6 +32,10 @@ public class ObservacaoOrdem implements Serializable {
 	@Column(name="DESC_OBSERVACAO")
 	private String descObservacao;
 
+	public ObservacaoOrdem() {
+		
+	}
+	
 	public ObservacaoOrdem(Integer id, OrdemServico ordemServico, Funcionario funcionario, String descObservacao) {
 		super();
 		this.id = id;

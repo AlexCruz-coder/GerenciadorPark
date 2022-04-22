@@ -1,6 +1,7 @@
 package com.metatecno.gestorpark.domain;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Objects;
 
@@ -30,14 +31,18 @@ public class OrdemServico implements Serializable {
 	private Funcionario funcionario;
 	
 	@Column(name="DT_ABERTURA")
-	private Date dataAbertura;
+	private Calendar dataAbertura;
 	
 	@Column(name="DT_CONCLUSAO")
-	private Date dataConclusao;
+	private Calendar dataConclusao;
 	
 	private TpStatus status;
+	
+	public OrdemServico() {
+		
+	}
 
-	public OrdemServico(Integer id, Brinquedo brinquedo, Funcionario funcionario, Date dataAbertura, Date dataConclusao,
+	public OrdemServico(Integer id, Brinquedo brinquedo, Funcionario funcionario, Calendar dataAbertura, Calendar dataConclusao,
 			TpStatus status) {
 		super();
 		this.id = id;
@@ -89,19 +94,19 @@ public class OrdemServico implements Serializable {
 		this.funcionario = funcionario;
 	}
 
-	public Date getDataAbertura() {
+	public Calendar getDataAbertura() {
 		return dataAbertura;
 	}
 
-	public void setDataAbertura(Date dataAbertura) {
+	public void setDataAbertura(Calendar dataAbertura) {
 		this.dataAbertura = dataAbertura;
 	}
 
-	public Date getDataConclusao() {
+	public Calendar getDataConclusao() {
 		return dataConclusao;
 	}
 
-	public void setDataConclusao(Date dataConclusao) {
+	public void setDataConclusao(Calendar dataConclusao) {
 		this.dataConclusao = dataConclusao;
 	}
 
